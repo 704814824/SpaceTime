@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"><!--等同于<meta http-equiv="content-type" content="text/html;charset=utf-8">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!--优先使用 IE 最新版本和 Chrome-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!--百度禁止转码-->
+    <title>时空论_百度搜索测试</title>
+    <meta name="theme-color" content="red"><!--让浏览器地址栏变颜色-->
+    <Link href="img/baidu.png" rel="Shortcut Icon"><!--给标题加图标-->
+    <link rel="icon" sizes="any" mask="" href="img/baidu.png"><!--处理兼容也是加图标-->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <script id="content_right_ejs" type="text/template">
+        <% if (names.length) { %>
+        <% names.forEach(function(name){ %>
+        <div class="c_gap_top_<%= name.cengshu %>">
+            <div class="c_span4 <%= name.lastone %>"  >
+                <div class="opr-recommends-merge-p">
+                    <a href="#">
+                        <img src= './img/<%= name.divImg %>.jpg'>
+                    </a>
+                    <% if ( name.cengshu <= 3) {%>
+                      <a class="opr-recommends-merge-mask" target="_blank" href="#"></a>
+                    <% } %>
+                </div>
+                <div class="c-gap-top-small">
+                    <a target="_blank" title="<%= name.divAHtml %>" href="#"><%= name.divAHtml%></a></div>
+                <% if ( name.cengshu != 2 && name.cengshu != 3) {%>
+                <div class="opr-recommends-merge-d">
+                    <p class="opr-recommends-merge-width-text"><%= name.divHtml %></p>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+        <% } %>
+    </script><!--right模板-->
+    <script id="content_left_ejs" type="text/template">
+        <% if (names.length) { %>
+        <% names.forEach(function(name){ %>
+            <div class="result c-container ">
+                <h3 class="t <%= name.divH3Class %>">
+                    <% if(name.H3Img != "") { %>  <!--例：doc图片 9-->
+                    <span class="ca-icon <%= name.H3Img %> c-gap-icon-right-small"></span>
+                    <% } %>
+                    <a href="#"><%= name.divH3 %></a>
+                </h3>
+                <% if(name.H3AfterPaper[0] != "") { %> <!--例：时空论_相关论文_百度学术无abstract-->
+                <div class="c-offset">
+                    <div class="ca-row">
+                        <span style="color:#666;float:right"><%= name.H3AfterPaper[0] %></span>
+                        <a href="#" target="_blank"><%=name.H3AfterPaper[1] %></a>&nbsp;<span style="color:#008000"><%=name.H3AfterPaper[2] %></span>
+                    </div>
+                    <div class="ca-row"><span style="color:#666;float:right"><%=name.H3AfterPaper[3]%></span>
+                        <a href="#" target="_blank"><%=name.H3AfterPaper[4] %></a>&nbsp;<span style="color:#008000"><%=name.H3AfterPaper[5] %></span>
+                    </div>
+                    <div class="ca-row">
+                    <span style="color:#666;float:right"><%=name.H3AfterPaper[6] %></span>
+                        <a href="#" target="_blank"><%=name.H3AfterPaper[7] %></a>&nbsp;<span style="color:#008000"><%=name.H3AfterPaper[8] %></span>
+                </div>
+                    <div class="ca-row"><a href="#" target="_blank">查看更多相关论文&gt;&gt;</a></div>
+                </div>
+
+
+                <% } %>
+                <% if(name.H3afterStart5 != "") { %>  <!-- 例：评分:4.5/5 27页-->
+                <p style="padding-top:3px;" class="container_wenku">
+                    <span class="m">
+                        <span class=" c-icon-star-gray">
+                            <span class="c-icon-star" style="width:90%;"></span>
+                        </span><%= name.H3afterStart5 %></span>
+                </p>
+                <% } %>
+                <% if(name.H3afterP != "") { %>
+                <p class="f13 m"><%= name.H3afterP %></p><!--例：1个回答 1-->
+                <% } %>
+                <% if(name.H3afterDoubleA[0] != "") { %>
+                <a href="#" target="_blank" class="c-gray"> <%= name.H3afterDoubleA[0] %></a>
+                <%= name.H3afterDoubleA[1] %>
+                <a href="#" class="c-gray" target="_blank"> <%= name.H3afterDoubleA[2] %></a>
+                <!--例：曾霄容 - 青文出版社6-->
+                <% } %>
+                <div class="abstract">
+                    <% if(name.preAbstract != "") { %>
+                    <span class="m"><%= name.preAbstract %></span><!--例：最佳答案:258910 -->
+                    <% } %>
+                    <% if(name.AbstractImg != "") { %>
+                    <a class="c-img6" style="height:75px" href="#" target="_blank"><img class="c-img c-img6" src="<%= name.AbstractImg %>" style="height:75px;">
+                    </a><!--例：Img 48-->
+                    <% } %>
+                    <%= name.abstract %>
+                </div>
+                <% if (name.AbstractAfterP[0] != "") { %>
+                <p><a class="c-gap-right-small" href="#" title=""><%= name.AbstractAfterP[0] %></a><a class="c-gap-right-small" href="#"><%= name.AbstractAfterP[1] %></a><a class="c-gap-right-small" href="#"><%= name.AbstractAfterP[2] %></a></p>
+                <% } %>
+                <div class="f13">
+                    <a href="#" class="c-showurl"><%= name.f13A %> </a><!--bbs.mzsky.cc/-->
+                    <div class="c-tools"><i class="ca-icon c-icon-triangle-down-g"></i></div>
+                    <% if(name.f13Img != "") { %>
+                    <span class="c_icon_magin">
+                        <a href="#" class="ca-icon c-icon-v <%= name.f13Img %> c_icon_top"></a>
+                    </span>  <!--例：V2 V3img-->
+                    <% } %>
+                    <% if(name.f13lastA[0] != "") { %>
+                    <span> - </span><a class="m" href="#"><%= name.f13lastA[0] %></a><span> - </span>
+                    <a class="m" href="#"><%= name.f13lastA[1] %></a>
+                    <!--例：- 百度快照 - 4031条评价-->
+                    <% } %>
+                    <% if(name.f13lastImg != "") { %>
+                    <span>-</span>
+                    <a class="m <%= name.f13lastImg %>" href="#">&nbsp;&nbsp; &nbsp;  &nbsp;</a>
+                    <!--例：- img-->
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
+        <% } %>
+    </script><!--left模板-->
+    <script type="text/javascript" src="js/jQuery.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="js/content_left_ejs.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/12.4object.js" charset="utf-8"></script>
+    <script src="ejs.js"></script>
+</head>
+<body link="#0000cc" ><!--link 属性规定文档中未访问链接的默认颜色。-->
+<!--header-->
+<div id="header">
+    <form action="http://www.baidu.com/baidu" target="_blank" class="left_nav">
+        <div class="soutu-layer" style="display: none;" id="soutu-layer">
+            <span class="re_content_soutu  quickdelete-wrap" >
+                <input  class=" soutu" placeholder="在此处粘贴图片网址">
+            </span>
+            <span class="s_btn re_char " id="soutu_s_btn" >
+                <i class="soutu_btn"></i>
+            </span>
+            <span class="soutu-url-error" style="display: none;" id="soutu-url-error">请输入正确的图片网址</span>
+            <div class="soutu_state">
+                <div class="soutu-drop">
+                    <span class="soutu-drop-tip">拖拽图片到这里</span>
+                    <i class="soutu-drop-icon"></i>
+                    </i>
+                </div>
+                <div class="upload-wrap">
+                    <input type="file" title="未显示任何文件" class="s_btn_input">
+                    <i class="upload-wrap-icon"></i>
+                    <span class="upload-text">本地上传图片
+                    </span>
+                </div>
+                <a class="soutu-close" href="javascript:void(0);" id="soutu-close"></a>
+            </div>
+
+        </div>
+        <div class="header_logo">
+            <a href="https://www.baidu.com/"><img src="http://www.baidu.com/img/baidu_jgylogo3.gif" alt="到百度首页" title="到百度首页" width="101" height="32.8"></a>
+        </div>
+        <div class="left_research" id="left_research">
+            <div class="re_ul" id="re_ul">
+                <ul>
+                    <li data-key="时空轮" class="re_ul_strong re_ul_overflow" >
+                        <span>时空论</span>
+                    </li>
+                    <li>时空论<b>坛南宁生活</b>
+                    </li>
+                    <li>
+                        时空论<b>坛</b>
+                    </li>
+                    <li>
+                        南宁时空论坛
+                    </li>
+                    <li>
+                        时空论<b>股票</b>
+                    </li>
+                </ul>
+            </div>
+            <span class="re_content quickdelete-wrap" id="re_content">
+                <input type="text" value="时空论" class="re_content_focus" id="re_content_focus" autocomplete="off">
+                <span class="soutu-btn quickdelete-wrap" id="soutu-btn"></span>
+            </span>
+            <span class="re_char quickdelete-wrap">
+                <input type="submit" id="su" value="百度一下" class="s_btn">
+            </span>
+        </div>
+    </form>
+    <div class="right_nav" id="right_nav">
+        <a href="/">百度首页</a><a href="/" id="nav_set">设置<i class="c-icon"></i></a><a href="/">登录</a>
+    </div>
+</div>
+<!--tab-->
+<div id="tab">
+    <b>网页</b>
+    <a href="#">新闻</a>
+    <a href="#">贴吧</a>
+    <a href="#">知道</a>
+    <a href="#">音乐</a>
+    <a href="#">图片</a>
+    <a href="#">视频</a>
+    <a href="#">地图</a>
+    <a href="#">文库</a>
+    <a href="#">更多»</a>
+</div>
+<!--content-->
+<div id="wrapper_wrapper">
+    <div class="content_l" id="content">
+      <!--面向对象数据出入口-->
+        <div class="cr-offset" id = "content_right" >
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td align="left">
+                        <div align="left" style="position: static" id="con-ar" class="result_hidden">
+                            <div class="cr_title c-clearfix" id="cr_title">
+                                <a  href="javascript:;"><span id="cr_title_span">展开</span>
+                                    <i class="cr-icon " id="cr_title_icon"></i>
+                                </a>
+                                <span title="相关术语" class="cr_title_span2">相关术语</span>
+                            </div>
+                            <div class="cr_content" id="dom">
+
+                            </div>
+                            <!--ejs content_right-->
+                            <div class="cr_title c-clearfix" id="cr_title_2">
+                                <a  href="javascript:;"><span id="cr_title_span_2">展开</span>
+                                    <i class="cr-icon " id="cr_title_icon_2"></i>
+                                </a>
+                                <span title="自然科学类书籍">自然科学类书籍</span>
+                            </div>
+                            <div class="cr_content" id="dom_2">
+                            <!--ejs content_right-->
+                            </div>
+                            <div style="text-align:right;"><a href="javascript:;" onclick="return false;" class="c-gray c-feedback">给百度提建议</a></div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="head_nums_cont_outer OP_LOG">
+            <div class="head_nums_cont_inner" style="top:-40px" id="head_nums">
+                <div class="search_tool_conter">
+                <span class="c-gap-left-samll search_tool_close" id="searchTool-up">
+                    <i class=" searchTool-up c-icon-chevron-top-gray-s"></i>收起工具</span>
+                    <span class="search_tool_tf ">时间不限<i class="c-icon-triangle-down"></i></span>
+                    <span class="search_tool_ft c-gap-left">所有网页和文件<i class=" c-icon-triangle-down"></i></span>
+                <span class="search_tool_si c-gap-left">站点内检索<i class="c-icon-triangle-down"></i>
+                </span>
+                </div>
+                <div class="nums">
+                    <div class="search_tool" id="search_tool">
+                        <i class="searchTool-spanner c-icon-setting">
+                        </i>搜索工具
+                    </div>百度为您找到相关结果约92,300个
+                </div>
+            </div>
+        </div>
+        <div id="content_left">
+
+        </div>
+        <div style="clear:both;height:0;"></div>
+        <div id="rs"><div class="tt">相关搜索</div>
+            <div class="th">
+                <a href="#" class="th_1">爱因斯坦证明上帝存在</a>
+                <a href="#" class="th_2">平行时空论</a>
+                <a href="#" >超越光速为什么会死亡</a>
+                <a href="#" class="th_1">时空悖论</a>
+                <a href="#" class="th_2">时空重置论</a>
+                <a href="#">ab时空论</a>
+                <a href="#" class="th_1">宇宙之外存在巨型生命</a>
+                <a href="#"class="th_2" >合体双修</a>
+                <a href="#">爱因斯坦死亡方程式</a>
+            </div>
+        </div>
+        <div style="clear:both;height:0;"></div>
+        <div id="page">
+            <strong><span class="fk fk_cur"><i class="c-icon c-icon-bear-p"></i></span><span class="pc">1</span></strong><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=10&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk fkd"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">2</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=20&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">3</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=30&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk fkd"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">4</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=40&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">5</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=50&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk fkd"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">6</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=60&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">7</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=70&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk fkd"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">8</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=80&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">9</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=90&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf"><span class="fk fkd"><i class="c-icon c-icon-bear-pn"></i></span><span class="pc">10</span></a><a href="/s?wd=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;pn=10&amp;oq=%E6%97%B6%E7%A9%BA%E8%AE%BA&amp;tn=90547864_hao_pg&amp;ie=utf-8&amp;usm=1&amp;rsv_idx=1&amp;rsv_pq=dfcba439000058ab&amp;rsv_t=afb01evPilmuXRtVGhZ6dsPALeHbM8e3mPGCPLLbfjYqXqpkWTv3ZKbSPyweHp5QTjgKiUlf&amp;rsv_page=1" class="n">下一页&gt;</a>
+
+
+        </div>
+    </div>
+    <div id="foot">
+            <span id="help" style="float:left;padding-left:121px"><a href="http://help.baidu.com/question" target="_blank">帮助</a><a href="#" >举报</a><a class="feedback" href="javascript:;">给百度提建议</a>
+            </span>
+    </div>
+
+</div>
+<div id="header_right_a_set" class="header_right_a_set">
+    <em></em>
+    <i></i>
+    <a href="#">搜索设置</a>
+    <a href="#">高级搜索</a>
+    <a href="#">关闭预测</a>
+    <a href="#">搜索历史</a>
+</div>
+</body>
+</html>
