@@ -1,0 +1,132 @@
+<html>
+<body style="background:red">
+<head lang="en">
+    <meta charset="UTF-8"><!--等同于<meta http-equiv="content-type" content="text/html;charset=utf-8">-->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />&lt;!&ndash;优先使用 IE 最新版本和 Chrome&ndash;&gt;
+     <meta http-equiv="Cache-Control" content="no-siteapp" />&lt;!&ndash;百度禁止转码&ndash;&gt;
+     <title>时空论_百度搜索测试</title>
+     <meta name="theme-color" content="red">&lt;!&ndash;让浏览器地址栏变颜色&ndash;&gt;
+     <Link href="img/baidu.png" rel="Shortcut Icon">&lt;!&ndash;给标题加图标&ndash;&gt;
+     <link rel="icon" sizes="any" mask="" href="img/baidu.png">&lt;!&ndash;处理兼容也是加图标&ndash;&gt;-->
+    <script data-main="js/main-re" src="require.js"></script>
+    <script id="content_left_ejs" type="text/template">
+        <% if (names.length) { %>
+        <% names.forEach(function(name){ %>
+        <div class="result c-container ">
+            <h3 class="t <%= name.divH3Class %>">
+                <% if(name.H3Img != "") { %>  <!--例：doc图片 9-->
+                <span class="ca-icon <%= name.H3Img %> c-gap-icon-right-small"></span>
+                <% } %>
+                <a href="#"><%= name.divH3 %></a>
+            </h3>
+            <% if(name.H3AfterPaper[0] != "") { %> <!--例：时空论_相关论文_百度学术无abstract-->
+            <div class="c-offset">
+                <div class="ca-row">
+                    <span style="color:#666;float:right"><%= name.H3AfterPaper[0] %></span>
+                    <a href="#" target="_blank"><%=name.H3AfterPaper[1] %></a>&nbsp;<span style="color:#008000"><%=name.H3AfterPaper[2] %></span>
+                </div>
+                <div class="ca-row"><span style="color:#666;float:right"><%=name.H3AfterPaper[3]%></span>
+                    <a href="#" target="_blank"><%=name.H3AfterPaper[4] %></a>&nbsp;<span style="color:#008000"><%=name.H3AfterPaper[5] %></span>
+                </div>
+                <div class="ca-row">
+                    <span style="color:#666;float:right"><%=name.H3AfterPaper[6] %></span>
+                    <a href="#" target="_blank"><%=name.H3AfterPaper[7] %></a>&nbsp;<span style="color:#008000"><%=name.H3AfterPaper[8] %></span>
+                </div>
+                <div class="ca-row"><a href="#" target="_blank">查看更多相关论文&gt;&gt;</a></div>
+            </div>
+
+
+            <% } %>
+            <% if(name.H3afterStart5 != "") { %>  <!-- 例：评分:4.5/5 27页-->
+            <p style="padding-top:3px;" class="container_wenku">
+                    <span class="m">
+                        <span class=" c-icon-star-gray">
+                            <span class="c-icon-star" style="width:90%;"></span>
+                        </span><%= name.H3afterStart5 %></span>
+            </p>
+            <% } %>
+            <% if(name.H3afterP != "") { %>
+            <p class="f13 m"><%= name.H3afterP %></p><!--例：1个回答 1-->
+            <% } %>
+            <% if(name.H3afterDoubleA[0] != "") { %>
+            <a href="#" target="_blank" class="c-gray"> <%= name.H3afterDoubleA[0] %></a>
+            <%= name.H3afterDoubleA[1] %>
+            <a href="#" class="c-gray" target="_blank"> <%= name.H3afterDoubleA[2] %></a>
+            <!--例：曾霄容 - 青文出版社6-->
+            <% } %>
+            <div class="abstract">
+                <% if(name.preAbstract != "") { %>
+                <span class="m"><%= name.preAbstract %></span><!--例：最佳答案:258910 -->
+                <% } %>
+                <% if(name.AbstractImg != "") { %>
+                <a class="c-img6" style="height:75px" href="#" target="_blank"><img class="c-img c-img6" src="<%= name.AbstractImg %>" style="height:75px;">
+                </a><!--例：Img 48-->
+                <% } %>
+                <%= name.abstract %>
+            </div>
+            <% if (name.AbstractAfterP[0] != "") { %>
+            <p><a class="c-gap-right-small" href="#" title=""><%= name.AbstractAfterP[0] %></a><a class="c-gap-right-small" href="#"><%= name.AbstractAfterP[1] %></a><a class="c-gap-right-small" href="#"><%= name.AbstractAfterP[2] %></a></p>
+            <% } %>
+            <div class="f13">
+                <a href="#" class="c-showurl"><%= name.f13A %> </a><!--bbs.mzsky.cc/-->
+                <div class="c-tools"><i class="ca-icon c-icon-triangle-down-g"></i></div>
+                <% if(name.f13Img != "") { %>
+                    <span class="c_icon_magin">
+                        <a href="#" class="ca-icon c-icon-v <%= name.f13Img %> c_icon_top"></a>
+                    </span>  <!--例：V2 V3img-->
+                <% } %>
+                <% if(name.f13lastA[0] != "") { %>
+                <span> - </span><a class="m" href="#"><%= name.f13lastA[0] %></a><span> - </span>
+                <a class="m" href="#"><%= name.f13lastA[1] %></a>
+                <!--例：- 百度快照 - 4031条评价-->
+                <% } %>
+                <% if(name.f13lastImg != "") { %>
+                <span>-</span>
+                <a class="m <%= name.f13lastImg %>" href="#">&nbsp;&nbsp; &nbsp;  &nbsp;</a>
+                <!--例：- img-->
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+        <% } %>
+    </script><!--left模板-->
+    <script id="content_right_ejs" type="text/template">
+        <% if (names.length) { %>
+        <% names.forEach(function(name){ %>
+        <div class="c_gap_top_<%= name.cengshu %>">
+            <div class="c_span4 <%= name.lastone %>"  >
+                <div class="opr-recommends-merge-p">
+                    <a href="#">
+                        <img src= './img/<%= name.divImg %>.jpg'>
+                    </a>
+                    <% if ( name.cengshu <= 3) {%>
+                    <a class="opr-recommends-merge-mask" target="_blank" href="#"></a>
+                    <% } %>
+                </div>
+                <div class="c-gap-top-small">
+                    <a target="_blank" title="<%= name.divAHtml %>" href="#"><%= name.divAHtml%></a></div>
+                <% if ( name.cengshu != 2 && name.cengshu != 3 && name.cengshu != 5) {%>
+                <div class="opr-recommends-merge-d">
+                    <p class="opr-recommends-merge-width-text"><%= name.divHtml %></p>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% }) %>
+        <% } %>
+    </script><!--right模板-->
+    <script src="ejs.js"></script>
+</head>
+<nav>
+    导航按钮1、导航按钮2、导航按钮3
+</nav>
+
+<div id="target" onclick="show()">
+    skjdflsjfaslfjaslfjalsfjk
+</div>
+<script>
+
+</script>
+
+</body>
+</html>

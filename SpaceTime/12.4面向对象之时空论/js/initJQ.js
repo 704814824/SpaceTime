@@ -1,45 +1,10 @@
 /**
- * Created by Administrator on 2016/12/6 0006.
+ * Created by Administrator on 2016/12/7 0007.
  */
-/*require.config({
+define(["jquery"], function ($){
 
-    // RequireJS 通过一个相对的路径 baseUrl来加载所有代码。baseUrl通常被设置成data-main属性指定脚本的同级目录。
-    baseUrl: "js",
-
-    // 第三方脚本模块的别名,jquery比libs/jquery-1.11.1.min.js简洁明了；
-    paths: {
-
-        "jquery": "jQuery"
-
-    }
-
-});*/
-require(['object-re-left','object-re-right','jQuery'], function (contentLeft, contentRight ){
-
-   /* contentRight调用*/
-    var content_right_ejs = document.getElementById("content_right_ejs").innerHTML;
-    contentRight.init(21);
-    (function initContentRight(){
-        for(var i = 0 ; i < contentRight.length; i++){
-            var names = contentRight.cells[i];
-            var htmlContentRight= ejs.render(content_right_ejs, { names: names});
-            contentRight.cells[i][i].cengshu < 4 ?  $("#dom").append(htmlContentRight) : $("#dom_2").append(htmlContentRight)
-        }
-    }());
-
-    /*contentLeft调用*/
-    var content_left_ejs = document.getElementById("content_left_ejs").innerHTML;
-    contentLeft.init(10);
-    (function initContentLeft(){
-        for(var i = 0 ; i < contentLeft.length; i++){
-            var names = contentLeft.cells[i];
-            var htmlContentRight= ejs.render(content_left_ejs, { names: names});
-            $("#content_left").append(htmlContentRight)
-        }
-    }());
-
-    /*JQ调用*/
-    /*搜索区行为*/
+    ///!*JQ调用*!/
+    // /!*搜索区行为*!/
     $("#soutu-btn").click(function(){
         $("#soutu-layer").show();
     });//搜索区搜图行为
@@ -65,7 +30,7 @@ require(['object-re-left','object-re-right','jQuery'], function (contentLeft, co
         $(window).scrollTop() > 150 ? $("#header").addClass("header_scroll") :$("#header").removeClass("header_scroll")
     });//页面滚动show阴影
 
-    /*header_right tip的显示和隐藏*/
+    ///!*header_right tip的显示和隐藏*!/
     var mouseOverEnums = {SHOW : 0};
     $("#nav_set").hover(function(){
         mouseOverEnums.SHOW = 0;
@@ -87,7 +52,7 @@ require(['object-re-left','object-re-right','jQuery'], function (contentLeft, co
         mouseOverEnums.SHOW = 0;
     });
 
-    /*content_right_title show and hide*/
+    ///!*content_right_title show and hide*!/
     $("#cr_title").click(function(){
         carry("#cr_title_span","#cr_title_icon");
         $("#dom .c_gap_top_2 .c_span4").toggle();
@@ -107,7 +72,7 @@ require(['object-re-left','object-re-right','jQuery'], function (contentLeft, co
         }
     }
 
-    /*content_left 搜索工具的animate*/
+    //content_left 搜索工具的animate
     $("#search_tool").click(function(){
         $("#head_nums").animate({top:"0px"},250);
     });

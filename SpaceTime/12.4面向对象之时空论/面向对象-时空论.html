@@ -123,14 +123,14 @@
 <!--header-->
 <div id="header">
     <form action="http://www.baidu.com/baidu" target="_blank" class="left_nav">
-        <div class="soutu-layer" style="display: none;" id="soutu-layer">
+        <div class="soutu-layer" style="display: none;" id="soutu-layer" onclick="soutuclick()">
             <span class="re_content_soutu  quickdelete-wrap" >
                 <input  class=" soutu" placeholder="在此处粘贴图片网址">
             </span>
             <span class="s_btn re_char " id="soutu_s_btn" >
                 <i class="soutu_btn"></i>
             </span>
-            <span class="soutu-url-error" style="display: none;" id="soutu-url-error">请输入正确的图片网址</span>
+            <span class="soutu-url-error" style="display: none;" id="soutu-url-error">请输入正确的图片网</span>
             <div class="soutu_state">
                 <div class="soutu-drop">
                     <span class="soutu-drop-tip">拖拽图片到这里</span>
@@ -145,7 +145,6 @@
                 </div>
                 <a class="soutu-close" href="javascript:void(0);" id="soutu-close"></a>
             </div>
-
         </div>
         <div class="header_logo">
             <a href="https://www.baidu.com/"><img src="http://www.baidu.com/img/baidu_jgylogo3.gif" alt="到百度首页" title="到百度首页" width="101" height="32.8"></a>
@@ -179,7 +178,35 @@
         </div>
     </form>
     <div class="right_nav" id="right_nav">
-        <a href="/">百度首页</a><a href="/" id="nav_set">设置<i class="c-icon"></i></a><a href="/">登录</a>
+        <a href="/">百度首页</a>
+        <a href="javascript:;" id="nav_set" >设置
+     <!--   <script>
+            var mouseOverEnums = {SHOW : 0};
+           function onOverSet(){
+                require(['jQuery'], function (){
+                   //$("#header_right_a_set").show();
+                })
+            }
+            function onOutSet(){
+                setTimeout(function(){
+                    $("#header_right_a_set").toggle();
+                },1000)
+            }
+            function onOver(){
+                require(['jQuery'], function (){
+                    $("#header_right_a_set").show();
+                })
+            }
+            function onOut(){
+                require(['jQuery'], function (){
+                   setTimeout(function(){
+                       $("#header_right_a_set").toggle();
+                   },1000)
+                })
+            }
+
+        </script>-->
+        <i class="c-icon"></i></a><a href="/">登录</a>
     </div>
 </div>
 <!--tab-->
@@ -287,5 +314,6 @@
     <a href="#">关闭预测</a>
     <a href="#">搜索历史</a>
 </div>
+
 </body>
 </html>
